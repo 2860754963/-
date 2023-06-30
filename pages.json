@@ -1,22 +1,46 @@
 {
-  "easycom": {
-    "^u-(.*)": "uview-ui/components/u-$1/u-$1.vue"
-  },
-  "pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
-    {
-      "path": "pages/index/index",
-      "style": {}
-    }, {
-      "path": "pages/userinfo/userinfo",
-      "style": {}
-    }
-  ],
-  "globalStyle": {
-    "navigationStyle": "custom",
-    "navigationBarBackgroundColor": "#4989ff",
-    "navigationBarTextStyle": "black",
-    "navigationBarTitleText": "uni-app",
-    "backgroundColor": "#F8F8F8"
-  },
-  "uniIdRouter": {}
+	"easycom": {
+		"^u-(.*)": "uview-ui/components/u-$1/u-$1.vue"
+	},
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		{
+			"path": "pages/index/index",
+			"style": {}
+		}, {
+			"path": "pages/userinfo/userinfo",
+			"style": {}
+		}, {
+			"path": "pages/Payroll/Payroll",
+			"style": {}
+
+		}, {
+			"path": "pages/rank/rank",
+			"style": {}
+
+		}, {
+			"path": "pages/teamMembers/teamMembers",
+			"style": {}
+
+		}, {
+			"path": "pages/depSwitch/depSwitch",
+			"style": {}
+
+		}, {
+			"path": "pages/oilDetails/oilDetails",
+			"style": {}
+
+		}, {
+			"path": "pages/noOilDetails/noOilDetails",
+			"style": {}
+
+		}
+	],
+	"globalStyle": {
+		"navigationStyle": "custom",
+		"navigationBarBackgroundColor": "#4989ff",
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "uni-app",
+		"backgroundColor": "#F8F8F8"
+	},
+	"uniIdRouter": {}
 }

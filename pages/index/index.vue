@@ -5,7 +5,7 @@
 		</u-navbar>
 		<view style="width: 100%; background-color: #4987ff; margin-top: -2px; border-radius:0 0 60rpx 60rpx;  ">
 			<u-cell-group>
-				<u-cell rightIconStyle="color:white" @click='rightClick'>
+				<u-cell rightIconStyle="color:white" @click='topage' name='/pages/userinfo/userinfo'>
 					<view slot="title">
 						<view class="userInfo">
 							<view
@@ -46,7 +46,8 @@
 					<view style="font-size: 25rpx; margin-left: 25rpx;">
 						油品联量
 					</view>
-					<view style="font-size: 28rpx;color: #4987ff;line-height: 28rpx;" @click="bottomBtnG" name='youpin'>
+					<view style="font-size: 28rpx;color: #4987ff;line-height: 28rpx;" @click="topageDetail"
+						data-name='/pages/oilDetails/oilDetails'>
 						明细
 					</view>
 				</view>
@@ -76,8 +77,8 @@
 					<view style="font-size: 25rpx; margin-left: 25rpx;">
 						非油品联量
 					</view>
-					<view style="font-size: 28rpx;color: #4987ff;line-height: 28rpx;" @click="bottomBtnG"
-						name='feiyoupin'>
+					<view style="font-size: 28rpx;color: #4987ff;line-height: 28rpx;" @click="topageDetail"
+						data-name='/pages/noOilDetails/noOilDetails'>
 						明细
 					</view>
 				</view>
@@ -106,13 +107,13 @@
 		<view class="bottomBtnG">
 			<u-cell-group>
 				<u-cell size="large" title="工资单" icon="order" isLink iconStyle='margin-right:10rpx;'
-					titleStyle='font-size:26rpx' @click='bottomBtnG' name='gongzi'></u-cell>
+					titleStyle='font-size:26rpx' @click='topage' name='/pages/Payroll/Payroll'></u-cell>
 				<u-cell size="large" title="评比排名" icon="thumb-up" isLink iconStyle='margin-right:10rpx;'
-					titleStyle='font-size:26rpx' @click='bottomBtnG' name='paiming'></u-cell>
+					titleStyle='font-size:26rpx' @click='topage' name='/pages/rank/rank'></u-cell>
 				<u-cell size="large" title="团队成员" icon="account" isLink iconStyle='margin-right:10rpx;'
-					titleStyle='font-size:26rpx' @click='bottomBtnG' name='chengyaun'></u-cell>
+					titleStyle='font-size:26rpx' @click='topage' name='/pages/teamMembers/teamMembers'></u-cell>
 				<u-cell size="large" title="部门切换" icon="setting" isLink iconStyle='margin-right:10rpx;'
-					titleStyle='font-size:26rpx' @click='bottomBtnG' name='bumen'></u-cell>
+					titleStyle='font-size:26rpx' @click='topage' name='/pages/depSwitch/depSwitch'></u-cell>
 			</u-cell-group>
 		</view>
 	</view>
@@ -125,15 +126,20 @@
 				title: 'Hello',
 				userSite: '万州加油站',
 				userAvater: require('../../static/logo.png')
+
 			};
 		},
 		onLoad() {},
 		methods: {
-			rightClick() {
-				console.log('右侧点击');
+			topageDetail(e) {
+				uni.navigateTo({
+					url: e.currentTarget.dataset.name
+				})
 			},
-			bottomBtnG(e) {
-				console.log(e, '点困了');
+			topage(e) {
+				uni.navigateTo({
+					url: e.name
+				})
 			}
 		}
 	};
@@ -142,7 +148,6 @@
 <style scoped lang="scss">
 	.bottomBtnG {
 		position: relative;
-		// top: 850rpx;
 		top: 20rpx;
 		left: 50%;
 		transform: translateX(-50%);
