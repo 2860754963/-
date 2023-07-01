@@ -27,7 +27,8 @@
 	export default {
 		data() {
 			return {
-				userAvater: require('../../static/logo.png'),
+				userAvater: '123',
+				// userAvater: require('../../static/logo.png'),
 				username: '张三',
 				usertel: '13838916593',
 				list: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]

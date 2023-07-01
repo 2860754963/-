@@ -125,7 +125,8 @@
 			return {
 				title: 'Hello',
 				userSite: '万州加油站',
-				userAvater: require('../../static/logo.png')
+				// userAvater: require('../../static/logo.png')
+				userAvater: '123'
 
 			};
 		},
