@@ -5,13 +5,15 @@
 				leftIconColor='#fff'>
 			</u-navbar>
 		</view>
+		<view class="leftyuan"></view>
+		<view class="rightyuan"></view>
 		<view class="main" :style="{'--navbarcusheight':navbarcusheight}">
 			<view class="top" id="top">
 				<view class="toptop">
 					<view style="display: flex;">
-						<u-icon name="order" color="#74b4b3" style="line-height: 80rpx;margin-right: 10rpx;"></u-icon>
-						<view>
-							非油品联量明细统计
+						<u-icon name="order" color="#74b4b3" style="line-height: 80rpx;"></u-icon>
+						<view style="font-size: 27rpx;margin-left: 15rpx;">
+							油品联量明细统计
 						</view>
 					</view>
 					<view style="display: flex;">
@@ -27,37 +29,38 @@
 					<u-scroll-list indicatorColor="#ccc" indicatorActiveColor="#4989ff">
 						<view class="scroll-list" style="flex-direction: row;">
 							<view class="topbottomlist" v-for="(item, index) in goodsArr" :key="index">
-								<view> {{ item.price }}#</view>
+								<view style="font-size: 28rpx;"> {{ item.price }}#</view>
 								<view style="color:#4989ff ;">{{item.thumbnail }}</view>
 							</view>
 						</view>
 					</u-scroll-list>
 				</view>
 			</view>
-			<view class="bottomlist">
-				<view class="bottomtop" id="bottomtop">
-					<view class="leftyuan"></view>
-					<view class="rightyuan"></view>
-					<view style="display: flex;justify-content: space-evenly;">
-						<ytdatepicker @datePickerConfirm='e=>starTime=e' inputPlaceholder='开始时间'></ytdatepicker>
-						<ytdatepicker @datePickerConfirm='e=>endTime=e' inputPlaceholder='结束时间'></ytdatepicker>
-					</view>
-					<button type="primary" class="buttonSearch">查询 </button>
+
+			<view class="bottomtop" id="bottomtop">
+				<view style="display: flex;justify-content: space-between;margin-bottom: 20rpx;">
+					<ytdatepicker @datePickerConfirm='e=>starTime=e' inputPlaceholder='开始时间'></ytdatepicker>
+					<ytdatepicker @datePickerConfirm='e=>endTime=e' inputPlaceholder='结束时间'></ytdatepicker>
 				</view>
+				<button type="primary" class="buttonSearch">查询 </button>
+			</view>
+			<view class="bottomlist">
+
 				<view class="resultlist"
 					:style="{'--topheight':topheight,'--bottomtopheight':bottomtopheight,'--navbarcusheight':navbarcusheight}">
 					<scroll-view scroll-y="true" style="height: 100%;" @scrolltolower='loadingMore'>
-						<view class="resultItem" v-for="(item,index) in resultitem" :key='index'>
+						<view class="resultItem" v-for="(item,index) in resultitem" :key='index'
+							:class="{ 'no-border': isLastItem(index) }">
 							<view style="display: flex;flex-direction: column;justify-content: space-evenly;">
 								<view style="display: flex;justify-content: space-around; width: 260rpx;">
 									<view>
 										0#
 									</view>
-									<view class="">
+									<view>
 										枪号：8
 									</view>
 								</view>
-								<view class="">
+								<view>
 									2023-06-20 13:20:31
 								</view>
 							</view>
@@ -70,7 +73,7 @@
 								</view>
 							</view>
 						</view>
-						<view style="height: 50rpx;line-height: 50rpx;">
+						<view style="height: 50rpx;line-height: 50rpx;padding-bottom: 40rpx;">
 							<u-divider text="我是有底线的" textColor="#2979ff" lineColor="#2979ff"></u-divider>
 						</view>
 					</scroll-view>
@@ -136,7 +139,10 @@
 			},
 			datePickerConfirm(e) {
 				console.log(e, "eeeeee");
-			}
+			},
+			isLastItem(index) {
+				return index === this.resultitem.length - 1;
+			},
 		},
 		mounted() {
 			const query = wx.createSelectorQuery()
@@ -157,8 +163,28 @@
 </script>
 
 <style lang="scss" scoped>
+	.bottomtop {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-evenly;
+		border-bottom: 1px dashed #ccc;
+		height: 237rpx;
+		width: 92%;
+		box-sizing: border-box;
+		padding: 40rpx;
+		padding-bottom: 20rpx;
+		background-color: #fff;
+		margin-left: 33rpx;
+		margin-top: 20rpx;
+	}
+
+	.no-border {
+		border-bottom: none !important;
+	}
+
 	.resultlist {
-		height: calc(100vh - var(--navbarcusheight) - var(--topheight) - var(--bottomtopheight) - 20px);
+		height: calc(100vh - var(--navbarcusheight) - var(--topheight) - var(--bottomtopheight) - 30px);
+		font-size: 27rpx;
 	}
 
 	.resultItem {
@@ -180,53 +206,38 @@
 		height: 30rpx;
 		border-radius: 50%;
 		background-color: #f4f4f4;
-		right: -16rpx;
-		bottom: -18rpx;
+		right: 15rpx;
+		top: 732rpx;
 		z-index: 9999;
 	}
 
 	.leftyuan {
-		position: absolute;
+		position: relative;
 		width: 30rpx;
 		height: 30rpx;
 		border-radius: 50%;
 		background-color: #f4f4f4;
-		left: -16rpx;
-		top: 184rpx;
+		left: 18rpx;
+		top: 562rpx;
 		z-index: 9999;
 	}
 
 	.buttonSearch {
-		width: 97%;
+		width: 100%;
 		background-color: #4989ff;
-		// height: 76rpx;
-		// line-height: 76rpx;
 		font-size: 30rpx;
+		height: 67rpx;
 		margin-top: 10rpx;
 	}
 
 	.bottomlist {
 		position: relative;
-		top: 20rpx;
-		height: calc(100vh - var(--topheight) - var(--navbarcusheight) - 20px);
+		height: calc(100vh - var(--topheight) - var(--navbarcusheight) - 30px);
 		left: 50%;
 		transform: translateX(-50%);
 		background-color: #fff;
 		width: 92%;
 
-		.bottomtop {
-			position: relative;
-			display: flex;
-			flex-direction: column;
-			justify-content: space-evenly;
-			border-bottom: 1px dashed #ccc;
-			height: 200rpx;
-			width: 100%;
-			box-sizing: border-box;
-			padding: 40rpx;
-			padding-bottom: 20rpx;
-
-		}
 	}
 
 	.toptop {
@@ -246,7 +257,7 @@
 
 	.main {
 		background-color: #f4f4f4;
-		height: calc(100vh - var(--navbarcusheight));
+		height: calc(100vh - var(--navbarcusheight) - 20px);
 	}
 
 

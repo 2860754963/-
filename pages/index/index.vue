@@ -3,21 +3,18 @@
 		<u-navbar height="50" placeholder bgColor="#4989ff">
 			<view slot="left" style="color: white;">{{ userSite }}</view>
 		</u-navbar>
-		<view style="width: 100%; background-color: #4987ff; margin-top: -2px; border-radius:0 0 60rpx 60rpx;  ">
+		<view class="topinfo">
 			<u-cell-group>
 				<u-cell rightIconStyle="color:white" @click='topage' name='/pages/userinfo/userinfo'>
 					<view slot="title">
 						<view class="userInfo">
-							<view
-								style="height: 190rpx; display: flex; flex-direction: column; justify-content: center;">
+							<view class="useravater">
 								<u-avatar :src="userAvater" size="80"></u-avatar>
 							</view>
-							<view
-								style="height: 190rpx;display: flex;  flex-direction: column; justify-content: space-evenly; margin-left: 20rpx; ">
+							<view class="username">
 								<view style="display: flex;">
 									<view style="font-size: 40rpx;margin-right: 10rpx;">张三</view>
-									<view
-										style="text-align: center; background-color: #7aafff;width: 100rpx;height: 50rpx;line-height: 50rpx; border-radius: 30%;margin-top: 4rpx;">
+									<view class="userpost">
 										站长</view>
 								</view>
 								<view style="font-size: 30rpx;">ID:115213</view>
@@ -30,17 +27,16 @@
 			</u-cell-group>
 		</view>
 		<view class="middlePanel">
-			<view style="display: flex;flex-direction: column; justify-content: center;">
-				<view style="text-align: center;font-size: 25rpx;color: #888888;margin-bottom: 15rpx;">2023-07</view>
+			<view class="panelitem">
+				<view class="itemtitle">2023-07</view>
 				<view style="font-size: 40rpx;">8373.8元</view>
 			</view>
-			<view style="display: flex;flex-direction: column; justify-content: center;">
-				<view style="text-align: center;font-size: 25rpx;color: #888888;margin-bottom: 15rpx;">今日</view>
+			<view class="panelitem">
+				<view class="itemtitle">今日</view>
 				<view style="font-size: 40rpx;">278.5元</view>
 			</view>
 		</view>
-		<view
-			style=" margin-top: -20rpx; width: 95%; display: flex; justify-content: space-around; padding: 0 15rpx 0 15rpx;">
+		<view class="middleoil">
 			<view class="left_youpin">
 				<view class="youpinlianliang" style="display: flex;justify-content: space-between;">
 					<view style="font-size: 25rpx; margin-left: 25rpx;">
@@ -52,8 +48,7 @@
 					</view>
 				</view>
 				<view style="margin-top: 30rpx;">
-					<view
-						style="font-size:25rpx ; display: flex; justify-content: space-between; margin-top: 15rpx;padding-left: 20rpx;">
+					<view class="oiltitle">
 						<view style="color: #888888;">
 							今日(元)
 						</view>
@@ -61,8 +56,7 @@
 							175.80
 						</view>
 					</view>
-					<view
-						style="font-size:25rpx ; display: flex; justify-content: space-between; margin-top: 10rpx;padding-left: 20rpx;">
+					<view class="oiltitle">
 						<view style="color: #888888;">
 							累计(元)
 						</view>
@@ -83,8 +77,7 @@
 					</view>
 				</view>
 				<view style="margin-top: 30rpx;">
-					<view
-						style="font-size:25rpx ; display: flex; justify-content: space-between; margin-top: 15rpx;padding-left: 20rpx;">
+					<view class="oiltitle">
 						<view style="color: #888888;">
 							今日(元)
 						</view>
@@ -92,8 +85,7 @@
 							175.80
 						</view>
 					</view>
-					<view
-						style="font-size:25rpx ; display: flex; justify-content: space-between; margin-top: 10rpx;padding-left: 20rpx;">
+					<view class="oiltitle">
 						<view style="color: #888888;">
 							累计(元)
 						</view>
@@ -112,8 +104,9 @@
 					titleStyle='font-size:26rpx' @click='topage' name='/pages/rank/rank'></u-cell>
 				<u-cell size="large" title="团队成员" icon="account" isLink iconStyle='margin-right:10rpx;'
 					titleStyle='font-size:26rpx' @click='topage' name='/pages/teamMembers/teamMembers'></u-cell>
-				<u-cell size="large" title="部门切换" icon="setting" isLink iconStyle='margin-right:10rpx;'
-					titleStyle='font-size:26rpx' @click='topage' name='/pages/depSwitch/depSwitch'></u-cell>
+				<u-cell class="lastchildcell" size="large" title="部门切换" icon="setting" isLink
+					iconStyle='margin-right:10rpx;' titleStyle='font-size:26rpx' @click='topage'
+					name='/pages/depSwitch/depSwitch'></u-cell>
 			</u-cell-group>
 		</view>
 	</view>
@@ -146,7 +139,39 @@
 	};
 </script>
 
-<style scoped lang="scss">
+<style lang="scss" scoped>
+	.content .topinfo /deep/.u-cell-group .u-cell-group__wrapper .u-line {
+		display: none !important;
+		// background-color: pink !important;
+	}
+
+
+
+	.bottomBtnG /deep/.u-cell-group .u-cell-group__wrapper .u-line:first-child {
+		display: none !important;
+		// background-color: pink !important;
+	}
+
+	.bottomBtnG /deep/.u-cell-group .u-cell-group__wrapper .u-cell:last-child .u-line {
+		display: none !important;
+		// background-color: pink;
+	}
+
+	.u-cell__bd {
+		border: none;
+	}
+
+	.u-cell__ft {
+		border: none;
+	}
+
+	.topinfo {
+		width: 100%;
+		background-color: #4987ff;
+		margin-top: -2px;
+		border-radius: 0 0 60rpx 60rpx;
+	}
+
 	.bottomBtnG {
 		position: relative;
 		top: 20rpx;
@@ -197,12 +222,66 @@
 		height: 190rpx;
 		border-radius: 20rpx;
 
+		.panelitem {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+
+			.itemtitle {
+				text-align: center;
+				font-size: 25rpx;
+				color: #888888;
+				margin-bottom: 15rpx;
+			}
+		}
+
+	}
+
+	.oiltitle {
+		font-size: 25rpx;
+		display: flex;
+		justify-content: space-between;
+		margin-top: 15rpx;
+		padding-left: 20rpx;
+	}
+
+	.middleoil {
+		margin-top: -20rpx;
+		width: 95%;
+		display: flex;
+		justify-content: space-around;
+		padding: 0 15rpx 0 15rpx;
 	}
 
 	.userInfo {
 		display: flex;
 		height: 290rpx;
 		color: #fff;
+
+		.useravater {
+			height: 190rpx;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+		}
+
+		.username {
+			height: 190rpx;
+			display: flex;
+			flex-direction: column;
+			justify-content: space-evenly;
+			margin-left: 20rpx;
+
+			.userpost {
+				text-align: center;
+				background-color: #7aafff;
+				width: 100rpx;
+				height: 50rpx;
+				line-height: 50rpx;
+				border-radius: 30%;
+				margin-top: 4rpx;
+			}
+		}
 	}
 
 	.content {

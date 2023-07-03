@@ -11,7 +11,7 @@
 					<view style="display: flex;">
 						<u-icon name="order" color="#74b4b3" style="line-height: 80rpx;margin-right: 10rpx;"></u-icon>
 						<view>
-							油品联量明细统计
+							非油品联量明细统计
 						</view>
 					</view>
 					<view style="display: flex;">
@@ -47,7 +47,8 @@
 				<view class="resultlist"
 					:style="{'--topheight':topheight,'--bottomtopheight':bottomtopheight,'--navbarcusheight':navbarcusheight}">
 					<scroll-view scroll-y="true" style="height: 100%;" @scrolltolower='loadingMore'>
-						<view class="resultItem" v-for="(item,index) in resultitem" :key='index'>
+						<view class="resultItem" v-for="(item,index) in resultitem" :key='index'
+							:class="{ 'no-border': isLastItem(index) }">
 							<view style="display: flex;flex-direction: column;justify-content: space-evenly;">
 								<view style="display: flex;justify-content: space-around; width: 260rpx;">
 									<view>
@@ -70,7 +71,7 @@
 								</view>
 							</view>
 						</view>
-						<view style="height: 50rpx;line-height: 50rpx;">
+						<view style="height: 50rpx;line-height: 50rpx;padding-bottom: 40rpx;">
 							<u-divider text="我是有底线的" textColor="#2979ff" lineColor="#2979ff"></u-divider>
 						</view>
 					</scroll-view>
@@ -136,7 +137,10 @@
 			},
 			datePickerConfirm(e) {
 				console.log(e, "eeeeee");
-			}
+			},
+			isLastItem(index) {
+				return index === this.resultitem.length - 1;
+			},
 		},
 		mounted() {
 			const query = wx.createSelectorQuery()
@@ -157,6 +161,10 @@
 </script>
 
 <style lang="scss" scoped>
+	.no-border {
+		border-bottom: none !important;
+	}
+
 	.resultlist {
 		height: calc(100vh - var(--navbarcusheight) - var(--topheight) - var(--bottomtopheight) - 20px);
 	}
@@ -182,6 +190,7 @@
 		background-color: #f4f4f4;
 		right: -16rpx;
 		bottom: -18rpx;
+		z-index: 9999;
 	}
 
 	.leftyuan {
@@ -192,6 +201,7 @@
 		background-color: #f4f4f4;
 		left: -16rpx;
 		top: 184rpx;
+		z-index: 9999;
 	}
 
 	.buttonSearch {

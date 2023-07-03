@@ -1,7 +1,7 @@
 <template>
 	<view class="main" :style="{'--width':width,'--height':height}" @click="show = true">
 		<view style="display: flex;height: 50rpx;">
-			<u-icon name="calendar" :size="iconSize"></u-icon>
+			<u-icon name="calendar" :size="iconSize" color="#ccc"></u-icon>
 			<view style="display: flex;flex-direction: column;justify-content: center;">
 				<input :placeholder="inputPlaceholder" :value="inputValue" disabled></input>
 			</view>
