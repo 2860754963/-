@@ -5,8 +5,16 @@
 				leftIconColor='#fff'>
 			</u-navbar>
 		</view>
-		<view>
-			内容定制中
+		<view class="topbg" style="background-image: url('../../static/rankbg.png');">
+			<view>排行榜</view>
+			<view>
+				<view>
+					更新时间
+				</view>
+				<view>
+					2023-06-20
+				</view>
+			</view>
 		</view>
 	</view>
 </template>
@@ -21,6 +29,10 @@
 	}
 </script>
 
-<style lang="scss">
-
+<style lang="scss" scoped>
+	.topbg {
+		width: 100%;
+		height: 20%;
+		background-color: #4989ff;
+	}
 </style>

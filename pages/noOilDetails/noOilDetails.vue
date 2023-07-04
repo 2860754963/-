@@ -167,6 +167,7 @@
 
 	.resultlist {
 		height: calc(100vh - var(--navbarcusheight) - var(--topheight) - var(--bottomtopheight) - 20px);
+		font-size: 27rpx;
 	}
 
 	.resultItem {

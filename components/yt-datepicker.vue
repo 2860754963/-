@@ -1,9 +1,9 @@
 <template>
 	<view class="main" :style="{'--width':width,'--height':height}" @click="show = true">
 		<view style="display: flex;height: 50rpx;">
-			<u-icon name="calendar" :size="iconSize" color="#ccc"></u-icon>
+			<u-icon name="calendar" :size="iconSize" color="#ccc" size='23'></u-icon>
 			<view style="display: flex;flex-direction: column;justify-content: center;">
-				<input :placeholder="inputPlaceholder" :value="inputValue" disabled></input>
+				<input :placeholder="inputPlaceholder" :value="inputValue" disabled style="font-size: 26rpx;"></input>
 			</view>
 		</view>
 		<u-datetime-picker id="datePicker" :show="show" v-model="value1" :mode="datetimeMode" :title='dateTitle'
