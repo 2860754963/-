@@ -168,6 +168,7 @@
 		flex-direction: column;
 		justify-content: space-evenly;
 		border-bottom: 1px dashed #ccc;
+		border-radius: 20rpx 20rpx 0 0;
 		height: 237rpx;
 		width: 92%;
 		box-sizing: border-box;
@@ -183,7 +184,7 @@
 	}
 
 	.resultlist {
-		height: calc(100vh - var(--navbarcusheight) - var(--topheight) - var(--bottomtopheight) - 30px);
+		height: calc(100vh - var(--navbarcusheight) - var(--topheight) - var(--bottomtopheight) - 20px);
 		font-size: 27rpx;
 	}
 
@@ -201,24 +202,26 @@
 	}
 
 	.rightyuan {
+		float: right;
 		position: absolute;
 		width: 30rpx;
 		height: 30rpx;
 		border-radius: 50%;
 		background-color: #f4f4f4;
-		right: 15rpx;
-		top: 732rpx;
+		right: 19rpx;
+		top: 681rpx;
 		z-index: 9999;
 	}
 
 	.leftyuan {
+		float: left;
 		position: relative;
 		width: 30rpx;
 		height: 30rpx;
 		border-radius: 50%;
 		background-color: #f4f4f4;
 		left: 18rpx;
-		top: 562rpx;
+		top: 542rpx;
 		z-index: 9999;
 	}
 
@@ -232,7 +235,7 @@
 
 	.bottomlist {
 		position: relative;
-		height: calc(100vh - var(--topheight) - var(--navbarcusheight) - 30px);
+		height: calc(100vh - var(--topheight) - var(--navbarcusheight) - 20px);
 		left: 50%;
 		transform: translateX(-50%);
 		background-color: #fff;
@@ -257,7 +260,7 @@
 
 	.main {
 		background-color: #f4f4f4;
-		height: calc(100vh - var(--navbarcusheight) - 20px);
+		height: calc(100vh - var(--navbarcusheight));
 	}
 
 
