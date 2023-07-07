@@ -37,6 +37,10 @@
 			"path": "pages/recruitmentInformation/recruitmentInformation",
 			"style": {}
 
+		}, {
+			"path": "pages/recruitmentInfoemployee/recruitmentInfoemployee",
+			"style": {}
+
 		}
 	],
 	"globalStyle": {
