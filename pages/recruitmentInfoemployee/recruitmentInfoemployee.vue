@@ -17,25 +17,24 @@
 			<view class="resultlist"
 				:style="{'--navbarcusheight':navbarcusheight,'--topsearchheight':topsearchheight,'--utabsheight':utabsheight}">
 				<scroll-view scroll-y="true" style="height: 100%;" @scrolltolower='loadingMore'>
-					<view class="resultItem">
+					<view class="resultItem" v-for="(item,index) in tagslist " :key='index'>
 						<view class="" style="display: flex;justify-content: space-between;">
-							<view class="" style="font-size: 31rpx;">
+							<view class="" style="font-size: 31rpx;margin-bottom: 8rpx;">
 								标题设备管理员
 							</view>
 							<view class="" style="font-size: 20rpx;color: red;line-height: 40rpx;">
 								报名时间：4天24：30：10
 							</view>
 						</view>
-						<view class="" style="font-size: 26rpx;color: #ccc;">
+						<view class="" style="font-size: 26rpx;color: #878787;margin-bottom: 8rpx;">
 							万州加油站
 						</view>
-						<view class="" style="display: flex;">
+						<view class="">
 							<view class="tags" v-for="(item,index) in tagslist" :key="index">
 								{{item}}
 							</view>
-
 						</view>
-						<view class="">
+						<view class="itemContent">
 							内容：万州加油站急需管理员2命万州加油站急需管理员2命万州加油站急需管理员2命万州加油站急需管理员2命
 						</view>
 					</view>
@@ -50,7 +49,7 @@
 	export default {
 		data() {
 			return {
-				tagslist: ['设备管理员', '本科', '1-3年经验'],
+				tagslist: ['设备管理员', '本科', '1-3年经验', '硕士', '国际奖牌', '奖金', '奖学金', '啥都要', '啥都要'],
 				searchvalue: '',
 				tabslist: [{
 					name: '最新'
@@ -86,12 +85,23 @@
 </script>
 
 <style lang="scss" scoped>
+	.itemContent {
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		height: 50rpx;
+		line-height: 50rpx;
+		font-size: 24rpx;
+
+	}
+
 	.resultItem {
 		display: flex;
 		flex-direction: column;
 		justify-content: space-evenly;
-		padding: 35rpx 20rpx;
+		padding: 18rpx 20rpx;
 		background-color: #fff;
+		margin-bottom: 10rpx;
 	}
 
 	.tags {
@@ -102,18 +112,18 @@
 		background-color: #ccc;
 		margin-right: 10rpx;
 		border-radius: 10rpx;
+		display: inline-block;
 	}
 
 	.resultlist {
 		height: calc(100vh - var(--navbarcusheight) - var(--topsearchheight) - var(--utabsheight));
-		background-color: pink;
-		padding-top: 10rpx;
+		background-color: #ccc;
 	}
 
 	.bottombody {
 		margin: 10rpx 20rpx;
 		padding: 0 20rpx;
-		background-color: #f9f9f9;
+		background-color: #fff;
 	}
 
 	.topsearch {
