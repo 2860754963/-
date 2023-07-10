@@ -41,6 +41,14 @@
 			"path": "pages/recruitmentInfoemployee/recruitmentInfoemployee",
 			"style": {}
 
+		}, {
+			"path": "pages/recuitDetails/recuitDetails",
+			"style": {}
+
+		}, {
+			"path": "pages/myDelivery/myDelivery",
+			"style": {}
+
 		}
 	],
 	"globalStyle": {

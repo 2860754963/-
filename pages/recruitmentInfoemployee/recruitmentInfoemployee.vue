@@ -17,13 +17,22 @@
 			<view class="resultlist"
 				:style="{'--navbarcusheight':navbarcusheight,'--topsearchheight':topsearchheight,'--utabsheight':utabsheight}">
 				<scroll-view scroll-y="true" style="height: 100%;" @scrolltolower='loadingMore'>
-					<view class="resultItem" v-for="(item,index) in tagslist " :key='index'>
+					<view class="resultItem" v-for="(item,index) in tagslist " :key='index' @click="toDetails(item)">
 						<view class="" style="display: flex;justify-content: space-between;">
 							<view class="" style="font-size: 31rpx;margin-bottom: 8rpx;">
 								标题设备管理员
 							</view>
-							<view class="" style="font-size: 20rpx;color: red;line-height: 40rpx;">
-								报名时间：4天24：30：10
+							<view class="">
+								<u-count-down :time="600000000" format="DD:HH:mm:ss" autoStart millisecond
+									@change="onChange">
+									<view class="time" style="font-size: 20rpx;color: red;line-height: 40rpx;">
+										<text class="time__item">{{ timeData.days }}&nbsp;天</text>
+										<text
+											class="time__item">{{ timeData.hours>10?timeData.hours:'0'+timeData.hours}}&nbsp;时</text>
+										<text class="time__item">{{ timeData.minutes }}&nbsp;分</text>
+										<text class="time__item">{{ timeData.seconds }}&nbsp;秒</text>
+									</view>
+								</u-count-down>
 							</view>
 						</view>
 						<view class="" style="font-size: 26rpx;color: #878787;margin-bottom: 8rpx;">
@@ -41,14 +50,22 @@
 
 				</scroll-view>
 			</view>
+			<dragbutton :isDock="true" :existTabBar="true" @btnClick="topage" class="mybutton">
+				<view>
+					我的投递
+				</view>
+			</dragbutton>
 		</view>
+
 	</view>
 </template>
 
 <script>
+	import dragbutton from 'components/drag-button.vue'
 	export default {
 		data() {
 			return {
+				timeData: {},
 				tagslist: ['设备管理员', '本科', '1-3年经验', '硕士', '国际奖牌', '奖金', '奖学金', '啥都要', '啥都要'],
 				searchvalue: '',
 				tabslist: [{
@@ -61,7 +78,36 @@
 				utabsheight: ''
 			};
 		},
+		components: {
+			dragbutton
+		},
 		methods: {
+			onChange(e) {
+				this.timeData = e
+			},
+			topage() {
+				uni.navigateTo({
+					url: '/pages/myDelivery/myDelivery'
+				})
+			},
+			toDetails(item) {
+				let data = {
+					a: '测试数据',
+					b: [1, 2, 3, 4, 5, 6],
+					c: {
+						c1: '测试数据',
+						c2: '测试数据2'
+					}
+				}
+				uni.navigateTo({
+					url: '/pages/recuitDetails/recuitDetails',
+					success: function(res) {
+						res.eventChannel.emit('resultItem', {
+							data
+						})
+					}
+				})
+			},
 			click() {
 				console.log('点击');
 			},
@@ -78,13 +124,19 @@
 				this.topsearchheight = result.height + 'px'
 			}).exec()
 			query.select('#topsearch').boundingClientRect((result) => {
-				this.utabsheight = result.height + 'px'
+				this.utabsheight = result.height - 20
+				this.utabsheight = this.utabsheight + 'px'
 			}).exec()
 		}
 	}
 </script>
 
 <style lang="scss" scoped>
+	.mybutton {
+		background-color: pink;
+		font-size: 30rpx;
+	}
+
 	.itemContent {
 		white-space: nowrap;
 		overflow: hidden;
@@ -101,7 +153,8 @@
 		justify-content: space-evenly;
 		padding: 18rpx 20rpx;
 		background-color: #fff;
-		margin-bottom: 10rpx;
+		// margin-bottom: 10rpx;
+		border-bottom: 10rpx solid #ccc;
 	}
 
 	.tags {

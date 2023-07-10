@@ -5,6 +5,9 @@
 				leftIconColor='#fff'>
 			</u-navbar>
 		</view>
+		<view class="">
+			内容定制中
+		</view>
 	</view>
 </template>
 

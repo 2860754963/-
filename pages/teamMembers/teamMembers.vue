@@ -14,10 +14,10 @@
 					<u-avatar :src="userAvater" shape="square" size='60'></u-avatar>
 				</view>
 				<view style="display: flex; flex-direction: column; justify-content: center;">
-					<view style="margin-bottom: 5rpx;font-size: 35rpx;">
+					<view style="margin-bottom: 5rpx;font-size: 30rpx;">
 						{{username}}
 					</view>
-					<view style="color: #8d8d8d;">
+					<view style="color: #8d8d8d;font-size: 25rpx;">
 						{{usertel}}
 					</view>
 				</view>
