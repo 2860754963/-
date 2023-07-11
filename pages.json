@@ -49,6 +49,10 @@
 			"path": "pages/myDelivery/myDelivery",
 			"style": {}
 
+		}, {
+			"path": "pages/monthlyAssessment/monthlyAssessment",
+			"style": {}
+
 		}
 	],
 	"globalStyle": {

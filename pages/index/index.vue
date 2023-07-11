@@ -102,6 +102,9 @@
 					titleStyle='font-size:26rpx' @click='topage' name='/pages/Payroll/Payroll'></u-cell>
 				<u-cell size="large" title="评比排名" icon="thumb-up" isLink iconStyle='margin-right:10rpx;'
 					titleStyle='font-size:26rpx' @click='topage' name='/pages/rank/rank'></u-cell>
+				<u-cell size="large" title="月度考核" icon="checkmark-circle" isLink iconStyle='margin-right:10rpx;'
+					titleStyle='font-size:26rpx' @click='topage'
+					name='/pages/monthlyAssessment/monthlyAssessment'></u-cell>
 				<u-cell size="large" title="招聘信息(站长)" icon="chat" isLink iconStyle='margin-right:10rpx;'
 					titleStyle='font-size:26rpx' @click='topage'
 					name='/pages/recruitmentInformation/recruitmentInformation'></u-cell>
@@ -218,7 +221,7 @@
 
 	.middlePanel {
 		position: relative;
-		top: -72rpx;
+		top: -93rpx;
 		left: 50%;
 		transform: translateX(-50%);
 		display: flex;
@@ -252,8 +255,8 @@
 	}
 
 	.middleoil {
-		margin-top: -45rpx;
-		width: 95%;
+		margin-top: -75rpx;
+		width: 96%;
 		display: flex;
 		justify-content: space-around;
 		padding: 0 15rpx 0 15rpx;
@@ -293,6 +296,7 @@
 	.content {
 		position: relative;
 		background-color: #f4f4f4;
-		height: 100vh;
+		padding-bottom: 40rpx;
+		// height: 100vh;
 	}
 </style>
