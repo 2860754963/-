@@ -9,6 +9,7 @@
 	"author": "",
 	"license": "ISC",
 	"dependencies": {
+		"moment": "^2.29.4",
 		"uview-ui": "^2.0.36"
 	},
 	"uni-app": {
