@@ -297,6 +297,6 @@
 		position: relative;
 		background-color: #f4f4f4;
 		padding-bottom: 40rpx;
-		// height: 100vh;
+		height: 100%;
 	}
 </style>
