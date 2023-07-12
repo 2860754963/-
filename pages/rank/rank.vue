@@ -1,6 +1,6 @@
 <template>
 	<view>
-		<view>
+		<view id="navbarcus">
 			<u-navbar height="50" placeholder bgColor="#5b89fd" left-text="评比排名" left-text-color='#fff' autoBack
 				leftIconColor='#fff'>
 			</u-navbar>
@@ -12,7 +12,7 @@
 					更新时间：
 				</view>
 				<view>
-					2023-06-20
+					{{moment().format('YYYY-MM-DD')}}
 				</view>
 			</view>
 			<view class="topimage">
@@ -20,32 +20,60 @@
 					style="width: 350rpx;height: 250rpx;" />
 			</view>
 		</view>
-		<view class="bottomPannel">
-			下方内容定制中
+		<template v-if="navbarcusheight" style="position: relative;">
+			<u-sticky :customNavHeight='navbarcusheight' style="background-color: pink;">
+				<u-tabs :list="tabslist" :scrollable='false' :lineWidth='40'></u-tabs>
+			</u-sticky>
+		</template>
+		<view style="height: 240rpx;background-color: pink;" v-for="(item,index) in list" :key="index">
+			123456
 		</view>
+
 	</view>
 </template>
 
 <script>
+	import moment from 'moment'
 	export default {
 		data() {
 			return {
-
+				list: [1, 2, 3, 4, 5, 6, 7, 8],
+				tabslist: [{
+					name: '油品销量排名'
+				}, {
+					name: '非油品销量排名'
+				}],
+				navbarcusheight: 0,
 			};
+		},
+		methods: {
+			moment,
 		},
 		mounted() {
 			const query = wx.createSelectorQuery()
-			// query.select('#navbarcus').boundingClientRect((result) => {
-			// 	this.navbarcusheight = result.height + 'px'
-			// }).exec()
-		}
+			query.select('#navbarcus').boundingClientRect((result) => {
+				this.navbarcusheight = result.height
+			}).exec()
+		},
+		computed: {
+			stickyoffsetTop() {
+				return this.navbarcusheight + 45
+			}
+		},
 	}
 </script>
 
 <style lang="scss" scoped>
+	/deep/.u-sticky {
+		background-color: pink !important;
+	}
+
 	.bottomPannel {
-		background-color: pink;
-		height: 80vh;
+		position: absolute;
+		width: 100%;
+		top: 413rpx;
+		background-color: #fff;
+		border-radius: 20rpx 20rpx 0 0;
 	}
 
 	.topimage {
@@ -72,8 +100,7 @@
 
 	.topbg {
 		width: 100%;
-		height: 361rpx;
-		// background: linear-gradient(to right );
+		height: 348rpx;
 		background-color: #5b89fd;
 	}
 </style>
