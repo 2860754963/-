@@ -23,6 +23,19 @@
 		<template v-if="navbarcusheight" style="position: relative;">
 			<u-sticky :customNavHeight='navbarcusheight' style="background-color: pink;">
 				<u-tabs :list="tabslist" :scrollable='false' :lineWidth='40'></u-tabs>
+				<view class="userrank">
+					<view class="uranktop">
+						<view class="">
+							站内月度排名
+						</view>
+						<view class="">
+							切换为省市排名
+						</view>
+					</view>
+					<view class="">
+						我的成绩
+					</view>
+				</view>
 			</u-sticky>
 		</template>
 		<view style="height: 240rpx;background-color: pink;" v-for="(item,index) in list" :key="index">
@@ -64,6 +77,18 @@
 </script>
 
 <style lang="scss" scoped>
+	.userrank {
+		height: 160rpx;
+		background-color: aliceblue;
+
+		.uranktop {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			height: 60rpx;
+		}
+	}
+
 	/deep/.u-sticky {
 		background-color: pink !important;
 	}
