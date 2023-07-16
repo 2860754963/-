@@ -1,8 +1,10 @@
 <template>
 	<view class="content">
-		<u-navbar height="50" placeholder bgColor="#4989ff">
-			<view slot="left" style="color: white;">{{ userSite }}</view>
-		</u-navbar>
+		<view class="">
+			<u-navbar height="50" placeholder bgColor="#4989ff">
+				<view slot="left" style="color: white;">{{ userSite }}</view>
+			</u-navbar>
+		</view>
 		<view class="topinfo">
 			<u-cell-group>
 				<u-cell rightIconStyle="color:white" @click='topage' name='/pages/userinfo/userinfo'>
@@ -221,14 +223,14 @@
 
 	.middlePanel {
 		position: relative;
-		top: -93rpx;
+		top: -102rpx;
 		left: 50%;
 		transform: translateX(-50%);
 		display: flex;
 		justify-content: space-evenly;
 		background-color: #fff;
 		width: 90%;
-		height: 190rpx;
+		height: 171rpx;
 		border-radius: 20rpx;
 
 		.panelitem {
@@ -255,7 +257,7 @@
 	}
 
 	.middleoil {
-		margin-top: -75rpx;
+		margin-top: -86rpx;
 		width: 96%;
 		display: flex;
 		justify-content: space-around;
@@ -297,6 +299,7 @@
 		position: relative;
 		background-color: #f4f4f4;
 		padding-bottom: 40rpx;
-		height: 100%;
+		height: 100vh;
+		box-sizing: border-box;
 	}
 </style>
