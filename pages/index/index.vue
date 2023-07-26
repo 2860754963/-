@@ -107,10 +107,10 @@
 				<u-cell size="large" title="月度考核" icon="checkmark-circle" isLink iconStyle='margin-right:10rpx;'
 					titleStyle='font-size:26rpx' @click='topage'
 					name='/pages/monthlyAssessment/monthlyAssessment'></u-cell>
-				<u-cell size="large" title="招聘信息(站长)" icon="chat" isLink iconStyle='margin-right:10rpx;'
+				<u-cell size="large" title="共享用工信息(站长)" icon="chat" isLink iconStyle='margin-right:10rpx;'
 					titleStyle='font-size:26rpx' @click='topage'
 					name='/pages/recruitmentInformation/recruitmentInformation'></u-cell>
-				<u-cell size="large" title="招聘信息(员工)" icon="chat" isLink iconStyle='margin-right:10rpx;'
+				<u-cell size="large" title="共享用工信息(员工)" icon="chat" isLink iconStyle='margin-right:10rpx;'
 					titleStyle='font-size:26rpx' @click='topage'
 					name='/pages/recruitmentInfoemployee/recruitmentInfoemployee'></u-cell>
 				<u-cell size="large" title="团队成员" icon="account" isLink iconStyle='margin-right:10rpx;'
