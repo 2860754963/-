@@ -108,7 +108,7 @@
 		padding: 5rpx 10rpx;
 		height: 30rpx;
 		line-height: 30rpx;
-		background-color: #ccc;
+		background-color: #f2f2f2;
 		margin-right: 10rpx;
 		border-radius: 10rpx;
 		display: inline-block;
@@ -121,7 +121,7 @@
 		padding: 18rpx 20rpx;
 		background-color: #fff;
 		margin-bottom: 10rpx;
-		border-bottom: 10rpx solid #ccc;
+		border-bottom: 10rpx solid #f9f9f9;
 	}
 
 	.resultlist {

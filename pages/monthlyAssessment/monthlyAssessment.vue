@@ -8,10 +8,8 @@
 		<view class="content">
 			<view class="topbgc">
 				<view class="leftcir">
-
 				</view>
 				<view class="rightcir">
-
 				</view>
 			</view>
 			<view class="toppannel">
@@ -20,7 +18,7 @@
 						考核月份：
 					</view>
 					<view class="" style="display: inline-block;float: right;">
-						<!-- 月份选择器 -->
+						<!-- 月份选择器  默认显示上个月信息-->
 						<view class="">
 							<monthpicker @monthchange='monthchange'></monthpicker>
 						</view>

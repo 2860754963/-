@@ -120,6 +120,13 @@
 					name='/pages/depSwitch/depSwitch'></u-cell>
 			</u-cell-group>
 		</view>
+		<u-overlay :show="overShow" @click="overShow = false" :duration="400">
+			<view class="overshow">
+				<view class="overshowitem">
+					生日快乐
+				</view>
+			</view>
+		</u-overlay>
 	</view>
 </template>
 
@@ -130,7 +137,8 @@
 				title: 'Hello',
 				userSite: '万州加油站',
 				// userAvater: require('../../static/logo.png')
-				userAvater: '123'
+				userAvater: '123',
+				overShow: true
 
 			};
 		},
@@ -151,6 +159,20 @@
 </script>
 
 <style lang="scss" scoped>
+	.overshowitem {
+		width: 120px;
+		height: 120px;
+		background-color: skyblue;
+
+	}
+
+	.overshow {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		height: 100%;
+	}
+
 	.content .topinfo /deep/.u-cell-group .u-cell-group__wrapper .u-line {
 		display: none !important;
 		// background-color: pink !important;

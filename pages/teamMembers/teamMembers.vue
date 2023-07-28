@@ -5,24 +5,24 @@
 				leftIconColor='#fff'>
 			</u-navbar>
 		</view>
-		<scroll-view scroll-y style="padding-left: 40rpx;" @scrolltolower='scrolltolower' show-scrollbar
+		<scroll-view scroll-y @scrolltolower='scrolltolower' show-scrollbar
 			:style="{'--navbarcusheight':navbarcusheight}" class="scrollview">
 
 			<view class="scrolItem" v-for="(item,index) in list " :key="item"
 				:class="{ 'no-border': isLastItem(index) }">
-				<view style="margin-right: 40rpx;margin-top: 30rpx;">
-					<u-avatar :src="userAvater" shape="square" size='60'></u-avatar>
+				<view class="itemuavater">
+					<u-avatar :src="userAvater" shape="square" size='50'></u-avatar>
 				</view>
-				<view style="display: flex; flex-direction: column; justify-content: center;">
-					<view style="margin-bottom: 5rpx;font-size: 30rpx;">
+				<view class="itemuserinfo">
+					<view class="itemusername">
 						{{username}}
 					</view>
-					<view style="color: #8d8d8d;font-size: 25rpx;">
+					<view class="itemusertel">
 						{{usertel}}
 					</view>
 				</view>
 			</view>
-			<view style="width: 650rpx;padding-bottom: 40rpx;">
+			<view class="bottomDivider">
 				<!-- <u-loadmore :status="loadStatus" /> -->
 				<u-divider :text="loadStatus" textColor="#2979ff" lineColor="#2979ff"></u-divider>
 			</view>
@@ -87,13 +87,40 @@
 </script>
 
 <style lang="scss" scoped>
+	.bottomDivider {
+		width: 650rpx;
+		padding-bottom: 40rpx;
+	}
+
+	.itemuserinfo {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+
+		.itemusername {
+			margin-bottom: 5rpx;
+			font-size: 30rpx;
+		}
+
+		.itemusertel {
+			color: #8d8d8d;
+			font-size: 25rpx;
+		}
+	}
+
+	.itemuavater {
+		margin-right: 40rpx;
+		margin-top: 30rpx;
+	}
+
 	.scrollview {
 		height: calc(100vh - var(--navbarcusheight));
+		padding-left: 40rpx;
 	}
 
 	.scrolItem {
 		display: flex;
-		height: 180rpx;
+		height: 162rpx;
 		border-bottom: 1px solid #ccc;
 	}
 

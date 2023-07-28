@@ -24,7 +24,7 @@
 			</view>
 			<view class="contentdatail" :style="{'--titleheight':titleheight,'--navbarcusheight':navbarcusheight}">
 				<scroll-view scroll-y="true" style="height: 100%;">
-					<view> <!-- 这里可以放置滚动列表 -->
+					<view>
 						详情
 						标题设备管理员
 						万州加油站
@@ -38,7 +38,7 @@
 						1、负责每日设定期巡回检查，维护设备非专业性的一般设备故障，属于专业维修故障能做出判断，并及时报告。
 						1、负责每日设定期巡回检查，维护设备非专业性的一般设备故障，属于专业维修故障能做出判断，并及时报告。1、负责每日设定期巡回检查，维护设备非专业性的一般设备故障，属于专业维修故障能做出判断，并及时报告。
 					</view>
-					<view> <!-- 这里可以放置滚动列表 -->
+					<view>
 						详情
 						标题设备管理员
 						万州加油站
@@ -102,7 +102,7 @@
 		padding: 5rpx 10rpx;
 		height: 30rpx;
 		line-height: 30rpx;
-		background-color: #ccc;
+		background-color: #f2f2f2;
 		margin-right: 10rpx;
 		border-radius: 10rpx;
 		display: inline-block;
